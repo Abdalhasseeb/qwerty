@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static com.example.clinic.qwerty.i;
+
 
 public class MainActivity2 extends AppCompatActivity {
     public static final String EXTRA_TEXT = "com.example.application.example.EXTRA_TEXT";
@@ -47,15 +49,29 @@ public class MainActivity2 extends AppCompatActivity {
 
 
         if ( n==0)  {
+            if (qwerty.hour == 15) {
+                qwerty.day++;
+                qwerty.hour = 9;
+                if (qwerty.day == 31) {
+                    qwerty.month++;
+                    qwerty.day = 1;
+                }
+
+            }
 
             TextView date = findViewById(R.id.textView4);
 
             String prit = "your reservation date at " + qwerty.hour + ":00" + "  in:  " + qwerty.day + "/" + qwerty.month + "/2022";
-            qwerty.PATIENTS[0]=(qwerty.ID+") "+fnn+"  "+lnn+" Age:"+Agee+" phone:"+Mphone+" "+prit);
-            date.setText(prit);
-            n++;
-            qwerty.hour++;
-            qwerty.ID++;
+            for (i = 0; i < 20; i++)
+                if (qwerty.PATIENTS[i] == null) {
+                    qwerty.PATIENTS[i] = (qwerty.ID + ") " + fnn + "  " + lnn + " Age:" + Agee + " phone:" + Mphone + " " + prit);
+                    qwerty.hour++;
+                    qwerty.ID++;
+                    n++;
+                    date.setText(prit);
+                    return;
+                }
+
 
 
         }else {
@@ -69,28 +85,10 @@ public class MainActivity2 extends AppCompatActivity {
 
 
     public void btnnextpagee(View view) {
-
-        EditText ph = (EditText) findViewById(R.id.et);
-        TextView dd= (TextView) findViewById(R.id.textView4);
         Intent intente = new Intent (this,MainActivity3.class);
-        Bundle p = getIntent().getExtras();
-        String fnn= p.getString("fname");
-        String lnn= p.getString("lname");
-        String Agee=p.getString("pAge");
-
-
-
-        Bundle b = new Bundle();
-        b.putString("phone",ph.getText().toString());
-        b.putString("date", dd.getText().toString());
-        b.putString("ffname", fnn);
-        b.putString("llname", lnn);
-        b.putString("AAge", Agee);
-
-        intente.putExtras(b);
         startActivity(intente);
-
     }
+
 
 }
 

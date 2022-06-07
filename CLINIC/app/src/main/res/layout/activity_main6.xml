@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity3"
-    android:background="@drawable/paper">
-
+    android:background="@drawable/paper"
+    tools:context=".MainActivity6">
 
     <TextView
-        android:id="@+id/editTextt"
-        android:layout_width="403dp"
-        android:layout_height="449dp"
+        android:id="@+id/textview1"
+        android:layout_width="409dp"
+        android:layout_height="380dp"
         android:layout_margin="@dimen/cardview_compat_inset_shadow"
         android:gravity="start"
         android:textColor="@color/black"
@@ -31,30 +30,14 @@
         android:background="@drawable/animationbutton"
         android:backgroundTint="@color/black"
         android:backgroundTintMode="add"
-        android:onClick="ADD"
-        android:text="Add a patient"
-        android:textColor="@color/black"
+        android:onClick="Ambulance_car"
+        android:text="Send an Ambulance car"
+        android:textColor="#F80505"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.866" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="271dp"
-        android:layout_height="59dp"
-        android:background="@drawable/animationbutton"
-        android:backgroundTint="@color/black"
-        android:backgroundTintMode="add"
-        android:onClick="Remove"
-        android:text="Remove a Patient"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.751" />
+        app:layout_constraintVertical_bias="0.644" />
 
     <Button
         android:id="@+id/button10"
@@ -63,14 +46,14 @@
         android:background="@drawable/animationbutton"
         android:backgroundTint="@color/black"
         android:backgroundTintMode="add"
-        android:onClick="Emergency_Case"
-        android:text="Emergency Case"
-        android:textColor="#FF0000"
+        android:onClick="Back_to_firstpage"
+        android:text="Add an Emergency case"
+        android:textColor="#F40303"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.867" />
 
     <TextView
         android:id="@+id/upid"
@@ -81,11 +64,11 @@
         android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.292"
+        app:layout_constraintHorizontal_bias="0.295"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.651" />
+        app:layout_constraintVertical_bias="0.558" />
 
     <EditText
         android:id="@+id/etpid"
@@ -95,11 +78,43 @@
         android:ems="10"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.711"
+        app:layout_constraintHorizontal_bias="0.729"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.652" />
+        app:layout_constraintVertical_bias="0.557" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="271dp"
+        android:layout_height="59dp"
+        android:background="@drawable/animationbutton"
+        android:backgroundTint="@color/black"
+        android:backgroundTintMode="add"
+        android:onClick="send_a_reservation_request"
+        android:text="Send a reservation request"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.754" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="271dp"
+        android:layout_height="59dp"
+        android:background="@drawable/animationbutton"
+        android:backgroundTint="@color/black"
+        android:backgroundTintMode="add"
+        android:onClick="Back_to_firstactivity"
+        android:text="Reservation"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

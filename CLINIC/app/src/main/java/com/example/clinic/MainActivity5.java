@@ -8,10 +8,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import static com.example.clinic.qwerty.i;
-
 public class MainActivity5 extends AppCompatActivity {
-    public EditText PatientID;
+    public EditText Address,pathological_case;
+    private int i =0 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,33 +18,42 @@ public class MainActivity5 extends AppCompatActivity {
         setContentView(R.layout.activity_main5);
         connect();
     }
+
     private void connect() {
-       PatientID=(EditText)findViewById(R.id.etpid);
+        Address=findViewById(R.id.etaddress);
+        pathological_case=findViewById(R.id.etpathological);
     }
 
-    public void remove(View view) {
-        String PID = PatientID.getText().toString();
-      int id=Integer.parseInt(PID);
-            if (id==0)
-            {
-                Toast.makeText(this, "Incorrect ID", Toast.LENGTH_SHORT).show();
+    public void btnsendreport(View view) {
+
+        String address,pathological,fn,ln,ag,ph;
+        address=Address.getText().toString();
+        pathological=pathological_case.getText().toString();
+
+        Bundle s = getIntent().getExtras();
+        fn= s.getString("firstname");
+        ln= s.getString("lastname");
+        ag= s.getString("Age");
+        ph= s.getString("phone");
+
+        for (i = 0; i < 20; i++)
+            if(qwerty.Emergency_PATIENTS[i] == null) {
+                qwerty.Emergency_PATIENTS[i]=qwerty.EID+") "+fn+" "+ln+" Age: "+ag+" phone: "+ph+"\n"+"Address: "+
+                        address+"\n"+"Pathological Case: "+pathological;
+                qwerty.EID++;
+
+
+                Toast.makeText(this, "Report has benn sent successfully", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, MainActivity6.class);
+                startActivity(intent);
                 return;
             }
-            id--;
-          if ( qwerty.PATIENTS[id]!=null) {
-              qwerty.PATIENTS[id]=null;
-        Toast.makeText(this, "This Patient has been removed successfully", Toast.LENGTH_SHORT).show();
-                return;}
 
-           else{
-               Toast.makeText(this, "This patient is not existed", Toast.LENGTH_SHORT).show();
-               return;
-           }
 
-    }
 
-    public void patients2(View view) {
-        Intent intent = new Intent(this,MainActivity3.class);
-       startActivity(intent);
+
+
+
+
     }
 }
